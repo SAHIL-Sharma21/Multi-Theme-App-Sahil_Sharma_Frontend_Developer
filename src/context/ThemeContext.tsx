@@ -11,17 +11,31 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{children: React.ReactNode}>  = ({children}) => {
 
-    const [theme, setTheme] = useState<ThemeName>(() => {
-        return (localStorage.getItem("theme") as ThemeName) || "theme1";
-    });
+    const getInitialTheme = (): ThemeName => {
+        const stored = localStorage.getItem("theme");
+        if(stored && ["theme1", "theme2", "theme3"].includes(stored)){
+            return stored as ThemeName;
+        }
+        return "theme1";
+    }
+
+    const [theme, setTheme] = useState<ThemeName>(getInitialTheme);
 
     useEffect(() => {
         localStorage.setItem("theme", theme)
     }, [theme]);
 
+    const safeTheme = themes[theme] ?? themes["theme1"];
+
+    useEffect(() => {
+    if (!["theme1", "theme2", "theme3"].includes(theme)) {
+        setTheme("theme1");
+    }
+}, [theme]);
+
     return (
         <ThemeContext.Provider value={{theme, setTheme}}>
-            <div className={`${themes[theme].bg} ${themes[theme].text} min-h-screen ${themes[theme].font} transition-all duration-300`}>
+            <div className={`${safeTheme.bg} ${safeTheme.text} min-h-screen ${safeTheme.font} transition-all duration-300`}>
                 {children}
             </div>
         </ThemeContext.Provider>

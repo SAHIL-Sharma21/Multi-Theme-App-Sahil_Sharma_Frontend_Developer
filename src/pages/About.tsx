@@ -1,0 +1,7 @@
+export const About = () => {
+    return (
+        <>
+            <h2>This is about page</h2>
+        </>
+    )
+}
