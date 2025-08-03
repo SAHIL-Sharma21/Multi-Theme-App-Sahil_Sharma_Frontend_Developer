@@ -1,22 +1,23 @@
-import { Route, Routes } from "react-router-dom"
-import { Header } from "./components/Header"
-import { Home } from "./pages/Home"
-import { About } from "./pages/About"
-import { Contact } from "./pages/Contact"
+import { Route, Routes } from "react-router-dom";
+import { Header } from "./components/Header";
+import { Home } from "./pages/Home";
+import { About } from "./pages/About";
+import { Contact } from "./pages/Contact";
+import { Layout } from "./components/Layout";
 
 function App() {
   return (
     <>
       <Header />
-      <div className="pt-20 px-4">
+      <Layout>
         <Routes>
-          <Route path="/" element={<Home/>}/>
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
-      </div>
+      </Layout>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

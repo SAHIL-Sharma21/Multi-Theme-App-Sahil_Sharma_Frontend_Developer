@@ -17,6 +17,8 @@ export const themes = {
         bg: 'bg-gray-900',
         text: 'text-gray-100',
         primary: 'bg-purple-700 text-white',
+        sidebarBg: "bg-gray-800 text-gray-200 w-56 min-h-screen p-4",
+        contentBg: "flex-grow p-6",
         card: 'bg-gray-800 shadow-lg',
     },
     theme3: {
