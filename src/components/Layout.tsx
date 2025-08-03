@@ -11,7 +11,7 @@ export const Layout: React.FC<{children: React.ReactNode}> = ({children}) => {
         return (
             <div className={`${themes[theme].bg} ${themes[theme].text} ${themes[theme].font} flex min-h-screen pt-16`}>
                 <Sidebar />
-                <main className={`${themes[theme].contentBg} ml-56`}>
+                <main className={`${themes[theme].contentBg} ml-0 md:ml-56`}>
                     {children}
                 </main>
             </div>

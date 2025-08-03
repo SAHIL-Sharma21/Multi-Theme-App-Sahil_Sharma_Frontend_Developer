@@ -10,7 +10,7 @@ export const Sidebar = () => {
 
     return(
         <>
-            <aside className={`${themes[theme].sidebarBg} fixed top-16 left-0 h-[calac(100vh-4rem)]`}>
+            <aside className={`${themes[theme].sidebarBg} fixed top-16 left-0 h-[calc(100vh-4rem)] w-56 p-4 hidden md:block`}>
                 <nav className="flex flex-col space-y-4 mt-4">
                     <Link to="/" className="hover:underline">Home</Link>                    
                     <Link to="/about" className="hover:underline">About Us</Link>
